@@ -8,7 +8,7 @@ int subtract(int a, int b) {
 }
 double divide(int a, int b) {
 	if (b == 0) {
-		throw std::invalid_argument("Делить на 0 нельзя!");
+		throw std::invalid_argument("Division by zero");
 	}
 	return static_cast<double>(a) / b;
 }

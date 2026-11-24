@@ -4,7 +4,6 @@
 #pragma once
 
 #include <iostream>
-#include <Windows.h>
 #include <cmath>
 #include <stdexcept>
 #include <cassert>
