@@ -12,10 +12,16 @@ endif()
 project ("cli_test")
 
 # Добавьте источник в исполняемый файл этого проекта.
-add_executable (cli_test "cli_test.cpp" "cli_test.h")
+add_executable (app "${CMAKE_CURRENT_SOURCE_DIR}/src/cli_test.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/src/m_utils.cpp")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
-  set_property(TARGET cli_test PROPERTY CXX_STANDARD 20)
+  target_compile_features(app PUBLIC cxx_std_20)
 endif()
 
 # TODO: Добавьте тесты и целевые объекты, если это необходимо.
+
+enable_testing()
+
+add_executable (tests "${CMAKE_CURRENT_SOURCE_DIR}/tests/tests.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/src/m_utils.cpp")
+
+add_test(NAME MathUnitTests COMMAND tests)
